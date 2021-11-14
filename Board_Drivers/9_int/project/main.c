@@ -14,6 +14,8 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 #include "bsp_beep.h"
 #include "bsp_gpio.h"
 #include "bsp_key.h"
+#include "bsp_int.h"
+#include "bsp_exit.h"
 
 /*
  * @description : main 函数
@@ -22,35 +24,21 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
  */
 int  main (void)
 {
-    int         keyvalue = 0;
-    uint8_t     led_state, beep_state;
+    int state = 0;
 
     /* 初始化 */
+    int_init();
     imx6u_clkinit();
     clk_enable();
     led_init();
     beep_init();
     key_init();
-
-    led_state = 0;
-    beep_state = 0;
+    exit_init();
 
     while(1) {
-        keyvalue = key_getvalue();
-        if (keyvalue) {         /*  按键按下    */
-            switch (keyvalue)
-            {
-            case KEY0_VALUE:
-                led_state = !led_state;
-                beep_state = !beep_state;
-                break;
-            
-            default:
-                break;
-            }
-        }
-    led_switch(LED0, led_state);
-    beep_switch(beep_state);
+        state = !state;
+        led_switch(LED0, state);
+        delay(500);
     }
 
     return  0;

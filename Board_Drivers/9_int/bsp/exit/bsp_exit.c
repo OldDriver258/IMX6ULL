@@ -9,7 +9,9 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 **************************************************************/
 #include "bsp_exit.h"
 #include "bsp_gpio.h"
+#include "bsp_delay.h"
 #include "bsp_int.h"
+#include "bsp_beep.h"
 
 void  exit_init (void)
 {
@@ -27,5 +29,21 @@ void  exit_init (void)
 
     /*  使能GIC中断，注册中断服务函数，使能GPIO中断 */
     GIC_EnableIRQ(GPIO1_Combined_16_31_IRQn);
+    system_register_irqhandler(GPIO1_Combined_16_31_IRQn,
+                              (system_irq_handler_t)gpio1_io18_irqhandle,
+                               NULL);
+    gpio_enableint(GPIO1, 18);
+}
 
+void  gpio1_io18_irqhandle (void)
+{
+    static unsigned char state = 0;
+
+    delay(10);
+    if (gpio_pinread(GPIO1, 18) == 0) {
+        state = !state;
+        beep_switch(state);
+    }
+
+    gpio_clearintflags(GPIO1, 18);
 }

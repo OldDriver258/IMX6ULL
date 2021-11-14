@@ -11,4 +11,7 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 #define _BSP_EXIT_H
 #include "imx6ul.h"
 
+void  exit_init (void);
+void  gpio1_io18_irqhandle (void);
+
 #endif // !_BSP_EXIT_H
