@@ -39,7 +39,6 @@ int  main (void)
     beep_init();
     uart_init();
 
-
     while(1) {
         printf("输入两个整数， 用空格隔开：");
         scanf("%d %d", &a, &b);
