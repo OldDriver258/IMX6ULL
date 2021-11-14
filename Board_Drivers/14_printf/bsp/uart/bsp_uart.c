@@ -125,3 +125,14 @@ unsigned char  getc (void)
     while((UART1->USR2 & 0x1) == 0);
     return UART1->URXD;
 }
+
+/**
+ * @brief  防止编译器报错
+ * @note
+ * @param  sig_nr:
+ * @retval None
+ */
+void raise(int sig_nr)
+{
+
+}

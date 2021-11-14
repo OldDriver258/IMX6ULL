@@ -19,6 +19,7 @@
 #include "bsp_timer.h"
 #include "bsp_keyfilter.h"
 #include "bsp_uart.h"
+#include "stdio.h"
 
 /*
  * @description : main 函数
@@ -27,7 +28,7 @@
  */
 int  main (void)
 {
-    unsigned char a;
+    int a, b;
     unsigned char state = 1;
 
     /* 初始化 */
@@ -40,14 +41,9 @@ int  main (void)
 
 
     while(1) {
-        puts("请输入一个字符:");
-        a = getc();
-        putc(a);
-        puts("\r\n");
-
-        puts("你输入的字符为:");
-        putc(a);
-        puts("\r\n\r\n");
+        printf("输入两个整数， 用空格隔开：");
+        scanf("%d %d", &a, &b);
+        printf("\r\n数据%d + %d = %d\r\n\r\n", a, b, a+b);
 
         state = !state;
         led_switch(LED0, state);
