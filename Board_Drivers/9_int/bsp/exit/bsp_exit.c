@@ -1,5 +1,5 @@
 /**************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
+
 文件名 : bsp_exit.c
 作者 : 张宇辰
 邮箱 : 1430024269@qq.com
@@ -13,6 +13,10 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 #include "bsp_int.h"
 #include "bsp_beep.h"
 
+/**
+ * @brief   GPIO 外部中断初始化
+ * 
+ */
 void  exit_init (void)
 {
     gpio_pin_config_t   key_config;
@@ -35,6 +39,10 @@ void  exit_init (void)
     gpio_enableint(GPIO1, 18);
 }
 
+/**
+ * @brief GPIO1_IO18 管脚外部中断处理函数
+ * 
+ */
 void  gpio1_io18_irqhandle (void)
 {
     static unsigned char state = 0;

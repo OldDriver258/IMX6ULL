@@ -1,5 +1,5 @@
 /**************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
+
 文件名 : bsp_led.c
 作者 : 张宇辰
 邮箱 : 1430024269@qq.com

@@ -1,7 +1,7 @@
 #ifndef __IMX6UL_H
 #define __IMX6UL_H
 /***************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
+
 文件名	: 	 imx6ul.h
 作者	   : 左忠凯
 版本	   : V1.0
