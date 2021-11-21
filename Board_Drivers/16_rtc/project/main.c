@@ -72,10 +72,13 @@ int  main (void)
 			lcd_fill(50, 40,370, 70, tftlcd_dev.backcolor); /* 清屏 */
 			sprintf(buf, "will be running %ds......", i);
 			lcd_show_string(50, 40, 300, 24, 24, buf);
+<<<<<<< HEAD
 			i--;
 			if (i < 0) {
 				break;
 			}
+=======
+>>>>>>> 2a0d7e75facf85ab4423ca9f88a5b1246b5c9d64
 		}
 
 		key = key_getvalue();
